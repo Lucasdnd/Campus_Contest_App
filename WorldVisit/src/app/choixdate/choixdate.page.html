@@ -4,6 +4,14 @@
       WorldVisit
     </ion-title>
   </ion-toolbar>
+  <ion-toolbar color="Light">
+    <ion-searchbar [(ngModel)]="searchName"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button color="dark" (click)="searchCountry()">
+        <ion-icon name="search-sharp" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content color="primary">
@@ -13,26 +21,25 @@
     </ion-title>
   </ion-header>
 
-  <div id="container" translucent="fullscreen">
     <ion-list color="primary">
-      <ion-item>
-        <ion-label>France</ion-label>
+      <ion-item  *ngFor ="let data of Data" >
+        <div>
+          {{countries}}
+        </div>
       </ion-item>
       <ion-item>
-        <ion-label>Allemagne</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Danemark</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Autriche</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Suède</ion-label>
+        <h1>{{ countryData.name }}</h1>
+        <h2>{{ countryData.capital }}</h2>
+        <h2>{{ countryData.region }}</h2>
+        <ion-buttons slot="end">
+        <ion-button color="dark" href="ajoutpays">
+          <ion-icon name="calendar" color="light"></ion-icon>
+        </ion-button>
+        </ion-buttons>
       </ion-item>
     </ion-list>
     
-  </div>
+
 
 </ion-content>
 
