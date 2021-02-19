@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS countries(id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,capitals TEXT, continent TEXT, date DATE);
