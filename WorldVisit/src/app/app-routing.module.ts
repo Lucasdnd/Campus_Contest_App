@@ -10,7 +10,19 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'accueil',
+    loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule)
   },
+  {
+    path: 'ajoutpays',
+    loadChildren: () => import('./ajoutpays/ajoutpays.module').then( m => m.AjoutpaysPageModule)
+  },
+  {
+    path: 'choixdate',
+    loadChildren: () => import('./choixdate/choixdate.module').then( m => m.ChoixdatePageModule)
+  },
+
 ];
 
 @NgModule({
