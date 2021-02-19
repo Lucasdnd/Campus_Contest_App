@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core';  
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  countryApiUrl = '';
+  countryData = {
+    
+  }
 
-  constructor() {}
+  constructor(public http: HttpClient) {
+    this.readAPI('https://restcountries.eu/rest/v2/all')
+    .subscribe((data) => {
+      console.log(data);
+    });
+  }
+
+    readAPI(URL: string) {
+      return this.http.get(URL);
+    }
 
 }
